@@ -45,7 +45,6 @@ class App extends Component {
     console.log('pokemonObj',pokemonObj)
     this.setState({
       team: [...this.state.team].concat(pokemonObj),
-      id: '',
       name: '',
       picture: '',
       lvl: ''
