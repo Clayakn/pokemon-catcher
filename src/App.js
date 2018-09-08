@@ -100,7 +100,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Lvl: {this.state.lvl}  {this.state.name}</h1>
-        <img src={this.state.picture} alt="pokemon"/>
+        {this.state.picture ? <img src={this.state.picture} alt="pokemon"/> : ''}
         <button onClick={() => this.find()}>Find Pokemon</button>
         <button onClick={() => this.catch()}>Catch Pokemon</button>
         <h1>Your Team</h1>
