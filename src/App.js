@@ -76,10 +76,10 @@ class App extends Component {
 
   save = (id) => {
     const index =  this.state.team.findIndex(e => e.id === id)
-    let recipesTeam = JSON.arse(JSON.stringify(this.state.team))
-   recipesTeam[index].name = this.state.selectedName
+    let newTeam = JSON.parse(JSON.stringify(this.state.team))
+   newTeam[index].name = this.state.selectedName
    this.setState((prevState) => ({
-      team: recipesTeam,
+      team: newTeam,
       editing: !prevState.editing
     })) 
   } 
