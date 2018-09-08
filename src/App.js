@@ -6,7 +6,7 @@ class App extends Component {
   constructor() {
     super() 
     this.state = {
-      id: '',
+      id: 0,
       name: '', 
       lvl: '', 
       picture: '',
@@ -23,18 +23,16 @@ class App extends Component {
 }
 
   find =() => {
-    let id = Math.floor(Math.random() * 150)
-    axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`)
+    axios.get(`https://pokeapi.co/api/v2/pokemon/${Math.floor(Math.random() * 150)}`)
     .then(response => {
-      console.log('id',id)
       console.log('name', response.data.name)
       console.log('picture', response.data.sprites.front_default)
-      this.setState({
-        id,
+      this.setState((prevState) => ({
+        id: prevState.id + 1,
         name: response.data.name,
         picture: response.data.sprites.front_default,
         lvl: Math.floor(Math.random() * 100)
-      })
+      }))
     })
   }
   catch = () => {
